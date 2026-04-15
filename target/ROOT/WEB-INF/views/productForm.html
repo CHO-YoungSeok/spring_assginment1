@@ -49,6 +49,8 @@
            - th:classappend로 오류 필드에 빨간 테두리 적용
            - th:errors로 오류 메시지 텍스트 표시
     -->
+
+
     <form th:action="@{/products/create}" th:object="${productForm}" method="post">
 
         <div class="form-group">
@@ -135,6 +137,6 @@
         </div>
 
     </form>
-
+    <p th:text="${'실습 수행: ' + #temporals.format(#temporals.createNow(), 'yyyy-MM-dd HH:mm:ss') + ' | 학번:  2271439 | 이름: 조영석'}"></p>
 </body>
 </html>

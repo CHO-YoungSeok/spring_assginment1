@@ -22,7 +22,7 @@ services:
   # ───────────────────────────────────────────────────────────────────
   mysql:
     image: mysql:9.1
-    container_name: spring-mvc-mysql
+    container_name: spring-mvc-mysql-assignment
 
     # 컨테이너 재시작 정책: Docker 재시작 시 자동으로 MySQL도 시작
     restart: unless-stopped
@@ -73,7 +73,7 @@ services:
   # (Tomcat 10.x는 Servlet 6.0 → Spring 7과 호환 불가)
   tomcat:
     image: tomcat:11.0-jdk21
-    container_name: spring-mvc-tomcat
+    container_name: spring-mvc-tomcat-assignment
 
     restart: unless-stopped
 
