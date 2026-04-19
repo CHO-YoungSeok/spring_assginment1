@@ -107,10 +107,37 @@ public class ProductRepository {
      */
     public List<Product> findByCategoryId(Long categoryId) {
         return entityManager.createQuery(
-                        "SELECT p FROM Product p WHERE p.category.id = :cid",
+                        "SELECT p FROM Product p LEFT JOIN FETCH p.category WHERE p.category.id = :cid ORDER BY p.id ASC",
                         Product.class)
                 .setParameter("cid", categoryId)
                 .getResultList();
+    }
+
+    /**
+     * 복합 검색: 이름(키워드) 및 카테고리 필터링
+     */
+    public List<Product> searchProducts(String keyword, Long categoryId) {
+        StringBuilder jpql = new StringBuilder("SELECT p FROM Product p LEFT JOIN FETCH p.category WHERE 1=1");
+
+        if (keyword != null && !keyword.isBlank()) {
+            jpql.append(" AND p.name LIKE :keyword");
+        }
+        if (categoryId != null) {
+            jpql.append(" AND p.category.id = :cid");
+        }
+
+        jpql.append(" ORDER BY p.id ASC");
+
+        TypedQuery<Product> query = entityManager.createQuery(jpql.toString(), Product.class);
+
+        if (keyword != null && !keyword.isBlank()) {
+            query.setParameter("keyword", "%" + keyword + "%");
+        }
+        if (categoryId != null) {
+            query.setParameter("cid", categoryId);
+        }
+
+        return query.getResultList();
     }
 
     /**

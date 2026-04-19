@@ -56,15 +56,8 @@ public class ProductController {
             @RequestParam(required = false) Long categoryId,
             Model model) {
 
-        List<Product> products;
-
-        if (keyword != null && !keyword.isBlank()) {
-            products = productService.searchByName(keyword);
-        } else if (categoryId != null) {
-            products = productService.searchByCategory(categoryId);
-        } else {
-            products = productService.getAllProducts();
-        }
+        // 복합 검색 수행 (keyword와 categoryId가 null이면 전체 조회와 동일하게 동작)
+        List<Product> products = productService.searchProducts(keyword, categoryId);
 
         model.addAttribute("products", products);
         model.addAttribute("categories", categoryService.getAllCategories());

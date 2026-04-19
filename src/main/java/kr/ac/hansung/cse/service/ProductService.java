@@ -88,17 +88,10 @@ public class ProductService {
     }
 
     /**
-     * 이름으로 상품 검색
+     * 이름(키워드) 및 카테고리 복합 조건 검색
      */
-    public List<Product> searchByName(String keyword) {
-        return productRepository.findByNameContaining(keyword);
-    }
-
-    /**
-     * 카테고리로 상품 검색
-     */
-    public List<Product> searchByCategory(Long categoryId) {
-        return productRepository.findByCategoryId(categoryId);
+    public List<Product> searchProducts(String keyword, Long categoryId) {
+        return productRepository.searchProducts(keyword, categoryId);
     }
 
     /**
