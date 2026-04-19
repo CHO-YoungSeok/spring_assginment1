@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>카테고리 목록</title>
+</head>
+
+<body>
+    <h1>카테고리 목록</h1>
+
+    <div class="alert-success" th:if="${successMessage}">
+        <span th:text="${successMessage}">성공 메시지</span>
+    </div>
+
+    <div class="alert-danger" th:if="${errorMessage}">
+        <span th:text="${errorMessage}">오류 메시지</span>
+    </div>
+
+    <a th:href="@{/categories/create}">카테고리 등록하러 가기</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>카테고리명</th>
+                <th>작업</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="cat : ${categories}">
+                <td th:text="${cat.id}"></td>
+                <td th:text="${cat.name}"></td>
+                <td>
+                    <form th:action="@{/categories/{id}/delete(id=${cat.id})}" method="post">
+                        <button type="submit">삭제</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p
+        th:text="${'실습 수행: ' + #temporals.format(#temporals.createNow(), 'yyyy-MM-dd HH:mm:ss') + ' | 학번:  2271439 | 이름: 조영석'}">
+    </p>
+</body>
+
+</html>
