@@ -1,10 +1,13 @@
 /Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/config/DbConfig.java
 /Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/config/WebAppInitializer.java
 /Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/config/WebConfig.java
+/Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/controller/CategoryController.java
 /Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/controller/ProductController.java
+/Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/exception/DuplicateCategoryException.java
 /Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/exception/GlobalExceptionHandler.java
 /Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/exception/ProductNotFoundException.java
 /Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/model/Category.java
+/Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/model/CategoryForm.java
 /Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/model/Product.java
 /Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/model/ProductDetail.java
 /Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/model/ProductForm.java
@@ -12,4 +15,5 @@
 /Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/repository/CategoryRepository.java
 /Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/repository/ProductRepository.java
 /Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/repository/TagRepository.java
+/Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/service/CategoryService.java
 /Users/0stone_1004/work-space/web-frame2/helloSpringJpa/src/main/java/kr/ac/hansung/cse/service/ProductService.java
