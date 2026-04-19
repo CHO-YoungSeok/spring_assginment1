@@ -91,6 +91,29 @@ public class ProductRepository {
     }
 
     /**
+     * 이름으로 상품 검색
+     * LIKE를 사용하여 부분 일치 검색 수행
+     */
+    public List<Product> findByNameContaining(String keyword) {
+        return entityManager.createQuery(
+                        "SELECT p FROM Product p WHERE p.name LIKE :keyword",
+                        Product.class)
+                .setParameter("keyword", "%" + keyword + "%")
+                .getResultList();
+    }
+
+    /**
+     * 카테고리 ID로 상품 조회
+     */
+    public List<Product> findByCategoryId(Long categoryId) {
+        return entityManager.createQuery(
+                        "SELECT p FROM Product p WHERE p.category.id = :cid",
+                        Product.class)
+                .setParameter("cid", categoryId)
+                .getResultList();
+    }
+
+    /**
      * 상품 저장 (신규 생성)
      *
      * EntityManager.persist():
