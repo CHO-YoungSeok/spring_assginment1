@@ -83,5 +83,22 @@ public class ProductRepositoryTest {
         Optional<Product> deleted = productRepository.findById(id);
         assertFalse(deleted.isPresent());
     }
+
+    @Test
+    @DisplayName("Test6: findByCategoryId")
+    public void testFindByCategoryId() {
+        // Find a category with products
+        List<Product> allProducts = productRepository.findAll();
+        if (allProducts.isEmpty()) return;
+        
+        Long catId = allProducts.get(0).getCategory() != null ? 
+                     allProducts.get(0).getCategory().getId() : null;
+        
+        if (catId != null) {
+            List<Product> results = productRepository.findByCategoryId(catId);
+            System.out.println("Found " + results.size() + " products for category " + catId);
+            assertFalse(results.isEmpty());
+        }
+    }
 }
 
